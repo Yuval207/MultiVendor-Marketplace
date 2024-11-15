@@ -12,7 +12,7 @@ const router = express.Router();
 // Vendor registration route
 router.post("/vendors/register", vendorSignUp);
 // Vendor profile update route
-router.put("/vendors/profile", updateVendorProfile);
+router.put("/vendors/profile/:id", updateVendorProfile);
 // Vendor's product management routes
 router.post("/vendors/products", addProduct); // Add a new product
 router.put("/vendors/products/:productId", editProduct); // Edit existing product

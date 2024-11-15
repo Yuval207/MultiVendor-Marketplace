@@ -7,6 +7,7 @@ import {
   updateVendor,
   getAllOrders,
   manageDispute,
+  createOrder,
 } from "./controllers/adminController.js";
 const router = express.Router();
 // Route to get a list of all vendors
@@ -19,8 +20,11 @@ router.post("/vendors/:id/suspend", suspendVendor);
 router.delete("/vendors/:id", deleteVendor);
 // Route to update vendor information (admin-only)
 router.put("/vendors/:id", updateVendor);
+// Create an order for a specific vendor
+router.post("/orders", createOrder);
 // Route to view all orders for dispute and refund management
-router.get("/orders", getAllOrders);
+
+router.get("/orders/:vendorID", getAllOrders);
 // Route to manage disputes (returns, refunds) - admin-only
 router.post("/disputes/:orderId", manageDispute);
 export default router;
